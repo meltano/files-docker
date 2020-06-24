@@ -6,7 +6,7 @@ COPY . .
 
 RUN pip install -r requirements.txt
 RUN meltano install
-RUN cp .meltano/cache/discovery.yml .
+RUN cp --remove-destination .meltano/cache/discovery.yml .
 
 # meltano ui
 ENV MELTANO_READONLY 1
