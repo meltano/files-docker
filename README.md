@@ -18,11 +18,11 @@ you can override the `MELTANO_IMAGE` [`--build-arg`](https://docs.docker.com/eng
 
 ```sh
 # Build image using latest Meltano version
-docker build --tag demo-project:dev .
+docker build --tag meltano-demo-project:dev .
 
 # Build image using Meltano version 1.37.0
 docker build \
-  --tag demo-project:dev \
+  --tag meltano-demo-project:dev \
   --build-arg MELTANO_IMAGE=meltano/meltano:v1.37.0 \
   .
 ```
@@ -35,8 +35,8 @@ as trailing arguments.
 
 ```sh
 # View Meltano version
-docker run demo-project:dev --version
+docker run meltano-demo-project:dev --version
 
 # List scheduled pipelines
-docker run demo-project:dev schedule list
+docker run meltano-demo-project:dev schedule list
 ```
