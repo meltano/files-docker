@@ -12,18 +12,19 @@ meltano add files docker
 ```
 
 By default, your Meltano project's Docker image is built from the [`meltano/meltano:latest`](https://hub.docker.com/r/meltano/meltano/tags)
-base image which comes with Python 3.6 and the latest version of Meltano.
-If you'd like to use a different image (e.g. `your-company/meltano:latest`) or a specific version (e.g. `meltano/meltano:v1.37.0`),
-you can override the `MELTANO_IMAGE` [`--build-arg`](https://docs.docker.com/engine/reference/commandline/build/#set-build-time-variables---build-arg).
+base image which comes with the latest version of Meltano, and the oldest version of Python supported by Meltano, currently 3.6.
+
+If you'd like to use a different image (e.g. `your-company/meltano:latest`), a specific version of Meltano (e.g. `meltano/meltano:v1.55.0`), or Python 3.7 or 3.8 (e.g. `meltano/meltano:latest-python3.8` or `meltano/meltano:v1.55.0-python3.7`),
+you can modify the `Dockerfile` or override the `MELTANO_IMAGE` [`--build-arg`](https://docs.docker.com/engine/reference/commandline/build/#set-build-time-variables---build-arg).
 
 ```sh
 # Build image using latest Meltano version
 docker build --tag meltano-demo-project:dev .
 
-# Build image using Meltano version 1.37.0
+# Build image using Meltano version 1.55.0 and Python 3.8
 docker build \
   --tag meltano-demo-project:dev \
-  --build-arg MELTANO_IMAGE=meltano/meltano:v1.37.0 \
+  --build-arg MELTANO_IMAGE=meltano/meltano:v1.55.0-python3.8 \
   .
 ```
 
