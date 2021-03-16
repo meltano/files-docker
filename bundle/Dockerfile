@@ -3,6 +3,9 @@ FROM $MELTANO_IMAGE
 
 WORKDIR /project
 
+# Copy over any project files not listed in .dockerignore
+COPY . .
+
 # Install any additional requirements
 COPY ./requirements.txt . 
 RUN pip install -r requirements.txt
@@ -16,9 +19,6 @@ RUN cp -n .meltano/cache/discovery.yml . 2>/dev/null || :
 
 # Don't allow changes to containerized project files
 ENV MELTANO_PROJECT_READONLY 1
-
-# Copy over remaining project files
-COPY . .
 
 # Expose default port used by `meltano ui`
 EXPOSE 5000
