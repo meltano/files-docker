@@ -16,6 +16,8 @@ By default, your Meltano project's Docker image is built from the [`meltano/melt
 If you'd like to use a different image (e.g. [registry.gitlab.com/meltano/meltano:latest](https://gitlab.com/groups/meltano/-/container_registries/189256?orderBy=NAME&sort=asc&search[]=latest&search[]=) in GitLab Registry, or `your-company/meltano:latest`), a specific version of Meltano (e.g. `meltano/meltano:v1.55.0`), or Python 3.8 or 3.9 (e.g. `meltano/meltano:latest-python3.8` or `meltano/meltano:v1.55.0-python3.9`),
 you can modify the `Dockerfile` or override the `MELTANO_IMAGE` [`--build-arg`](https://docs.docker.com/engine/reference/commandline/build/#set-build-time-variables---build-arg).
 
+> Note: Until [#3265](https://gitlab.com/meltano/meltano/-/issues/3265) is resolved, we recommend caution in depending on the [registry.gitlab.com/meltano/meltano](https://gitlab.com/groups/meltano/-/container_registries/189256?orderBy=NAME&sort=asc&search[]=latest&search[]=) images as they are regularly rebuilt during CI/CD.
+
 ```sh
 # Build image using latest Meltano version
 docker build --tag meltano-demo-project:dev .
