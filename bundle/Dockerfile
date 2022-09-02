@@ -8,8 +8,8 @@ WORKDIR /project
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
-# Install all plugins into the `.meltano` directory
-COPY ./meltano.yml .
+# Copy over Meltano project directory
+COPY . .
 RUN meltano install
 
 # Pin `discovery.yml` manifest by copying cached version to project root
@@ -17,9 +17,6 @@ RUN cp -n .meltano/cache/discovery.yml . 2>/dev/null || :
 
 # Don't allow changes to containerized project files
 ENV MELTANO_PROJECT_READONLY 1
-
-# Copy over remaining project files
-COPY . .
 
 # Expose default port used by `meltano ui`
 EXPOSE 5000
