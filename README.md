@@ -8,7 +8,7 @@ Files:
 
 ```sh
 # Add Docker files to your Meltano project
-meltano add files docker
+meltano add files files-docker
 ```
 
 By default, your Meltano project's Docker image is built from the [`meltano/meltano:latest`](https://hub.docker.com/r/meltano/meltano/tags) base image which comes with the latest version of Meltano, and the oldest version of Python supported by Meltano, currently 3.7.
